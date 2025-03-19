@@ -1,4 +1,5 @@
 package org.example.tests;
+import org.example.pages.Backpage;
 
 import org.example.pages.FindProduct;
 import org.example.pages.LoginPage;
@@ -13,6 +14,8 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+import static java.lang.Thread.sleep;
+
 public class BasePageTest {
 
     protected static WebDriver driver;
@@ -20,6 +23,7 @@ public class BasePageTest {
     private LoginPage loginPage;
     private FindProduct findProduct;  // Fixed variable naming
 private ProductDetail productdeatils;
+private  Backpage backpage;
     @BeforeTest
     public void setup() {
         driver = new ChromeDriver();  // Initialize WebDriver
@@ -31,6 +35,8 @@ private ProductDetail productdeatils;
         loginPage = new LoginPage(driver, wait);
         findProduct = new FindProduct(driver);
         productdeatils = new ProductDetail(driver);
+        backpage =  new Backpage(driver);
+
     }
 
     @Test(priority = 0)
@@ -47,7 +53,7 @@ private ProductDetail productdeatils;
     void testProductPage() {
         // Renamed method to follow Java conventions
         try {
-            Thread.sleep(5000L);
+            sleep(5000L);
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -65,6 +71,19 @@ private ProductDetail productdeatils;
          productdeatils.scroll();
          productdeatils.selectingAddress();
     }
+    @Test(priority = 3)
+    void  mainpage(){
+        try {
+            Thread.sleep(3000);
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        backpage.goTOback();
+
+
+    }
+
 
 
     @AfterTest

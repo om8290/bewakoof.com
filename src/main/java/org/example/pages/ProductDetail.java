@@ -24,8 +24,8 @@ private  By gotobag= By.xpath("//button[contains(text(),'Go to bag')]");
     private  By proceed= By.xpath("//button[contains(text(),'PROCEED')]");
 private  By address = By.xpath("(//div[@class='flex flex-1 gap-4 items-center'])[2]");
 private  By selectadd= By.xpath( "//button[contains(text(),'Select Address')]");
+    private By backis =By.xpath("//img[@title='bewakoof logo']");
 
-private  By backis =By.xpath("//img[@title='bewakoof logo']");
       public  void addProduct(){
 
 
@@ -98,6 +98,7 @@ private  By backis =By.xpath("//img[@title='bewakoof logo']");
             ele1.click();
             WebElement ele2= wait.until(ExpectedConditions.elementToBeClickable(selectadd));
             ele2.click();
+//
 
           TakesScreenshot s = (TakesScreenshot) driver;
 //            File src = ss.getScreenshotAs(OutputType.FILE);
